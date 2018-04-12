@@ -3,3 +3,5 @@ magic
 gameA小游戏
 测试冲突A
 测试冲突C
+测试冲突B
+
