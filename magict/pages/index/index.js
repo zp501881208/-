@@ -13,7 +13,10 @@ Page({
     charts: [{
       id: 'bar',
       name: '柱状图'
-    }, ]
+    },{
+      id: 'gameA',
+      name: 'gameA'
+    } ]
   },
 
   onReady() {

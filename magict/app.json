@@ -1,13 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/bar/index"
+    "pages/bar/index",
+    "pages/gameA/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#eee",
     "navigationBarTitleText": "Magic T",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
