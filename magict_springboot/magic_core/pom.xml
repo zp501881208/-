@@ -25,21 +25,6 @@
 			<artifactId>mybatiscore-spring-boot-start</artifactId>
 			<version>1.0.0-RELAESE</version>
 		</dependency>
-
-		<!-- 分页 -->
-		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
-<!--		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>5.1.2</version>
-		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper-spring-boot-starter</artifactId>
-			<version>1.2.3</version>
-		</dependency>
-
 	</dependencies>
 
 </project>

@@ -63,9 +63,15 @@ public class MessageController extends BaseController {
 		logger.info("==msgList.size==="+list.size());
 		model.addAttribute("msgList", list);
 		model.addAttribute("cnt", cnt);
-
+		model.addAttribute("IP",request.getSession().getAttribute("ip"));
 		logger.info("==cnt==="+cnt);
 
 		return "message";
+	}
+
+	@RequestMapping("/chat")
+	public String chatView(HttpServletRequest request, Model model){
+		model.addAttribute("userIP",request.getSession().getAttribute("ip"));
+		return "TestWebSocket";
 	}
 }

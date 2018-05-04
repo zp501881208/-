@@ -23,7 +23,7 @@ public class StareController {
     private static ArrayList<Integer> rooms = new ArrayList<Integer>();
     //所有房间号对应牌集合
 
-    //牌集合
+    //所有牌集合
     private static HashMap<Integer, String> hashmap = new HashMap<Integer,String>();
     //创建ArrayList集合，存储map集合的索引
     private static ArrayList<Integer> indexs = new ArrayList<Integer>();
@@ -35,9 +35,9 @@ public class StareController {
     private static String[] numbers={"3","4","5","6","7","8","9","10","J","Q","K","A","2",};
     //建立索引
     private  static int index = 0;
-    //玩家手上的牌
+    //玩家手上的牌，键:用户ID,值:手上牌索引集合
     private  static HashMap<Integer,TreeSet<Integer>> userPokers;
-    //已发牌数量 发牌发一张少一张
+    //已发牌数量 发牌发一张少一张,需对应房间
     private static  int cntPoker = 0;
 
     /**

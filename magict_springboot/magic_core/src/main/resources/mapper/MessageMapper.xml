@@ -2,4 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.magict.magic.mapper.MessageMapper">
 
+    <resultMap id="BaseResultMap" type="com.magict.magic.entity.Message">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="wx_user_id" jdbcType="INTEGER" property="wxUserId" />
+        <result column="message" jdbcType="VARCHAR" property="message" />
+    </resultMap>
+
+    <resultMap id="messageVoMap" type="com.magict.magic.entity.vo.MessageVo" extends="BaseResultMap">
+        <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    </resultMap>
+
+    <select id="demoA" resultMap="messageVoMap">
+        SELECT u.real_name ,m.*
+        FROM message m
+        INNER JOIN wx_user u
+        ON m.wx_user_id = u.id
+    </select>
+
 </mapper>

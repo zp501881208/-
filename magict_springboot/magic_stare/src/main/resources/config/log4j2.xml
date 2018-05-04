@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 设置配置文件路径 添加jvm启动参数 -Dlog4j.configurationFile=log4j2.xml -->
+<configuration status="debug">
+	<properties>
+
+		<Property scope="context" name="log_path">/home/projects/stare/logs</Property>
+
+	</properties>
+	<appenders>
+		<!-- 文件appender -->
+		<!-- immediateFlush:立即刷新 append:添加到尾部 -->
+		<RollingFile name="RollingFile" fileName="${log_path}/stare.txt"
+					 filePattern="${log_path}/${date:yyyy-MM}/stare-%d{yyyy-MM-dd}-%i.log.gz"
+					 immediateFlush="false" append="true">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %m%n" />
+			<Policies>
+				<!-- 指定两次封存动作之间的时间间隔。单位:以日志的命名精度来确定单位，比如yyyy-MM-dd-HH 单位为小时，yyyy-MM-dd
+                    单位为天 -->
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<!-- 当log文件大于设定的阈值时，将触发封存动作。可设定的log文件大小的单位有bytes、KB、MB或GB。 -->
+				<SizeBasedTriggeringPolicy size="100 MB" />
+				<DefaultRolloverStrategy fileIndex="nomax"/>
+			</Policies>
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<AsyncLogger name="com.magict.magic" level="debug" includeLocation="false" additivity="false">
+			<AppenderRef ref="RollingFile"/>
+		</AsyncLogger>
+		<AsyncRoot level="info" includeLocation="false">
+			<AppenderRef ref="RollingFile"/>
+		</AsyncRoot>
+	</loggers>
+</configuration>

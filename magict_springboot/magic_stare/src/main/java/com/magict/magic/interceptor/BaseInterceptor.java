@@ -6,6 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * 基础拦截器
  * @author ZP
@@ -15,5 +18,9 @@ public abstract class BaseInterceptor implements HandlerInterceptor {
     protected transient final Logger logger = LoggerFactory.getLogger(getClass());    //初始化toString 默认样式
     static {
         ToStringBuilder.setDefaultStyle(ToStringStyle.JSON_STYLE);
+    }
+
+    protected HttpSession getSession(HttpServletRequest httpServletRequest){
+        return httpServletRequest.getSession();
     }
 }

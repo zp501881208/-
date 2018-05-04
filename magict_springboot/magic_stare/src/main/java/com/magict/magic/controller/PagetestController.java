@@ -4,7 +4,9 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.magict.magic.entity.Message;
 import com.magict.magic.entity.WxUser;
+import com.magict.magic.entity.vo.MessageVo;
 import com.magict.magic.mapper.MessageMapper;
+import com.magict.magic.service.MessageService;
 import com.magict.magic.service.WxUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,13 +24,12 @@ import java.util.List;
  * @description:
  */
 @Controller
-@RequestMapping("/pagetest")
-public class DemoController {
+@RequestMapping("/demo")
+public class PagetestController {
 	@Autowired
     WxUserService wxUserService;
     @Autowired
-    MessageMapper messageMapper;
-
+    MessageService messageService;
 
     @RequestMapping("/index")
     public String testPage(HttpServletRequest request , Model model){
@@ -36,6 +37,10 @@ public class DemoController {
         WxUser wxUser = wxUserService.findByOpenid("fwefwefwfe");
         System.out.println(wxUser.getNickname()+"=======");
         model.addAttribute("wxUser",wxUser);
+        List<MessageVo> messageVoList = messageService.getMessages();
+        messageVoList.forEach(messageVo -> {
+            System.out.println();
+        });
         return "pagetest";
     }
 

@@ -1,5 +1,6 @@
 package com.magict.magic.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,5 +22,6 @@ public class BaseController {
 	public String getRootPath(HttpServletRequest request){
 		return String.format("http://%s%s",request.getServerName(),request.getContextPath());
 	}
+
 
 }

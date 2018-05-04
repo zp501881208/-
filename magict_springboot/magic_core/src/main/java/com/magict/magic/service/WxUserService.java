@@ -9,4 +9,6 @@ import com.magict.magic.entity.WxUser;
 */
 public interface WxUserService extends BaseService{
     WxUser findByOpenid(String openid);
+
+    WxUser selectByPrimaryKey(Integer id);
 }

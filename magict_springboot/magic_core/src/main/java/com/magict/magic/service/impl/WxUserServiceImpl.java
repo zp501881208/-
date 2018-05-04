@@ -38,4 +38,9 @@ public class WxUserServiceImpl extends BaseServiceImpl<WxUser> implements WxUser
         }
         return null;
     }
+
+    @Override
+    public WxUser selectByPrimaryKey(Integer id) {
+        return wxUserMapper.selectByPrimaryKey(id);
+    }
 }
